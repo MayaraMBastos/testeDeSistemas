@@ -1,8 +1,10 @@
 package Teste;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -15,9 +17,10 @@ public class Testes {
     // Inicializar metodos base
     @BeforeMethod
     public void iniciar(){
-        driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aluno\\Desktop\\testesSistemas\\chromedriver_win32\\chromedriver.exe");
-
+//        driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aluno\\Desktop\\testesSistemas\\chromedriver_win32\\chromedriver.exe");
+        driver = new EdgeDriver();
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Downloads\\edgedriver_win64\\msedgedriver.exe");
 
     }
 
@@ -34,7 +37,7 @@ public class Testes {
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[1]/div[2]/input")).sendKeys("Martinello");
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[2]/div/textarea")).sendKeys("Rua Xavantes, 900");
         driver.findElement(By.xpath("//*[@id=\"eid\"]/input")).sendKeys("email@email.com");
-        driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys("55 44 12345-1234");
+        driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys("46123451234");
 
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[5]/div/label[2]/input")).click();
         driver.findElement(By.id("checkbox2")).click();
@@ -42,8 +45,7 @@ public class Testes {
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[7]/div/multi-select/div[2]/ul/li[29]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[7]/div/multi-select/div[2]/ul/li[8]/a")).click();
 
-//        driver.findElement(By.xpath("//*[@id=\"country\"]")).click();
-//        driver.findElement(By.xpath("//*[@id=\"country\"]/option[7]")).click();
+        driver.findElement(By.xpath("//*[@id=\"country\"]/option[11]")).click();
 
         Select skill = new Select(driver.findElement(By.xpath("//*[@id=\"Skills\"]")));
         skill.selectByVisibleText("Android");
@@ -60,7 +62,7 @@ public class Testes {
         driver.findElement(By.id("firstpassword")).sendKeys("senha");
         driver.findElement(By.id("secondpassword")).sendKeys("senha");
 
-
+        driver.findElement(By.xpath("//*[@id=\"submitbtn\"]")).click();
 
 
     }
@@ -76,12 +78,12 @@ public class Testes {
 
     }
 
-// Finalizar teste e fechar o navegador
-        @AfterMethod
-        public void finalizar() throws InterruptedException {
-            Thread.sleep(5000); // aguarda 5 segundos e fecha o navegador
-            // Esse metodo irá fechar o navegador
-            driver.quit();
-        }
-
+    // Finalizar teste e fechar o navegador
+    @AfterMethod
+    public void finalizar() throws InterruptedException {
+        Thread.sleep(5000); // aguarda 5 segundos e fecha o navegador
+        // Esse metodo irá fechar o navegador
+        driver.quit();
     }
+
+}
