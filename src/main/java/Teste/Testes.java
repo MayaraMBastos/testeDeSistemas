@@ -17,10 +17,10 @@ public class Testes {
     // Inicializar metodos base
     @BeforeMethod
     public void iniciar(){
-//        driver = new ChromeDriver();
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aluno\\Desktop\\testesSistemas\\chromedriver_win32\\chromedriver.exe");
-        driver = new EdgeDriver();
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Downloads\\edgedriver_win64\\msedgedriver.exe");
+        driver = new ChromeDriver();
+       System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aluno\\Downloads\\chromedriver_win32\\chromedriver.exe");
+//        driver = new EdgeDriver();
+//        System.setProperty("webdriver.edge.driver", "C:\\Users\\Aluno\\Downloads\\edgedriver_win64\\msedgedriver.exe");
 
     }
 
